@@ -24,19 +24,6 @@ def get_templates():
 
 
 class AbstractIcon(TranslatablePluginModel):
-    icon = Icon()
-
-    template = models.CharField(
-        verbose_name=_('Template'),
-        choices=get_templates(),
-        default=get_templates()[0][0],
-        max_length=255,
-    )
-    label = models.CharField(
-        verbose_name=_('Label'),
-        blank=True,
-        max_length=255,
-    )
     attributes = AttributesField(
         verbose_name=_('Attributes'),
         blank=True,
@@ -54,14 +41,14 @@ class AbstractIcon(TranslatablePluginModel):
 
 class Icon(AbstractIcon):
     translations = TranslatedFields(
-        icon_new=Icon(),
-        template_new=models.CharField(
+        icon=Icon(),
+        template=models.CharField(
             verbose_name=_('Template'),
             choices=get_templates(),
             default=get_templates()[0][0],
             max_length=255,
         ),
-        label_new=models.CharField(
+        label=models.CharField(
             verbose_name=_('Label'),
             blank=True,
             max_length=255,
