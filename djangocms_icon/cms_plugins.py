@@ -3,11 +3,12 @@ from django.utils.translation import gettext_lazy as _
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 
+from .translatable_utils import TranslatablePlugin
 from .forms import IconForm
 from .models import Icon
 
 
-class IconPlugin(CMSPluginBase):
+class IconPlugin(TranslatablePlugin):
     model = Icon
     form = IconForm
     name = _('Icon')
